@@ -5,24 +5,29 @@
 ## Setup
 
 - Connect to the server with SSH.
-- [Install Node.js 20.x](https://github.com/nodesource/distributions#nodejs):
+- Install [Node.js](https://nodejs.org) 24.x:
 
   ```bash
   $> sudo apt-get update
-  $> sudo apt-get install -y ca-certificates curl gnupg
-  $> sudo mkdir -p /etc/apt/keyrings
-  $> curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-  $> echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-  $> sudo apt-get update
-  $> sudo apt-get install nodejs -y
+  $> sudo apt-get install -y ca-certificates curl
+
+  # Download and install nvm:
+  $> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  $> source "$HOME/.nvm/nvm.sh"
+
+  # Download and install Node.js:
+  $> nvm install 24
+
+  # Verify the Node.js version:
+  $> node -v # v24.x.y
   ```
 
 - Install Git, clone the application and install its dependencies:
 
   ```bash
   $> sudo apt-get install -y git
-  $> git clone https://github.com/MediaComem/comem-archidep-gallery.git
-  $> cd comem-archidep-gallery
+  $> git clone https://github.com/ArchiDep/vulnerable-image-gallery.git
+  $> cd vulnerable-image-gallery
   $> npm ci
   ```
 
@@ -38,7 +43,7 @@
   necessary:
 
   ```bash
-  $> cd comem-archidep-gallery
+  $> cd vulnerable-image-gallery
   ```
 
 - Run the application:
