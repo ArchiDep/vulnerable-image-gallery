@@ -8,15 +8,12 @@
 - Install [Node.js](https://nodejs.org) 24.x:
 
   ```bash
-  $> sudo apt-get update
-  $> sudo apt-get install -y ca-certificates curl
-
-  # Download and install nvm:
-  $> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-  $> source "$HOME/.nvm/nvm.sh"
+  # Make sure cURL is installed to download stuff:
+  $> sudo apt-get install -y curl
 
   # Download and install Node.js:
-  $> nvm install 24
+  $> curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+  $> sudo apt-get install -y nodejs
 
   # Verify the Node.js version:
   $> node -v # v24.x.y
