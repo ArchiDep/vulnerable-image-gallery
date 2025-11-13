@@ -1,6 +1,8 @@
 import express from 'express';
+import fs from 'node:fs/promises';
+import mimeTypes from 'mime-types';
 import multer from 'multer';
-import { resolve as resolvePath } from 'path';
+import { resolve as resolvePath } from 'node:path';
 
 import { createLogger, imagesDir } from '../config.js';
 import { route } from './utils.js';
@@ -50,7 +52,15 @@ router.get(
     // (ㆆ _ ㆆ)
     const file = resolvePath(`${imagesDir}/${req.params.image}`);
     logger.debug(`Reading file ${file}`);
-    res.sendFile(file);
+
+    // Bypass Express 5's sendFile security checks by reading the file
+    // ourselves and sending the contents with the appropriate Content-Type.
+    //
+    // (ㆆ _ ㆆ)
+    const contents = await fs.readFile(file);
+    res
+      .set('Content-Type', mimeTypes.lookup(file) || 'application/octet-stream')
+      .send(contents);
   })
 );
 
