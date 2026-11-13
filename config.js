@@ -1,9 +1,6 @@
-import dotenv from 'dotenv';
 import log4js from 'log4js';
 import { dirname, join as joinPath } from 'path';
 import { fileURLToPath } from 'url';
-
-dotenv.config();
 
 export const root = dirname(fileURLToPath(import.meta.url));
 export const imagesDir = joinPath(root, 'images');
