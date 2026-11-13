@@ -5,18 +5,18 @@
 ## Setup
 
 - Connect to the server with SSH.
-- Install [Node.js](https://nodejs.org) 24.x:
+- Install [Node.js](https://nodejs.org) 26.x:
 
   ```bash
   # Make sure cURL is installed to download stuff:
   $> sudo apt-get install -y curl
 
   # Download and install Node.js:
-  $> curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+  $> curl -fsSL https://deb.nodesource.com/setup_26.x | sudo -E bash -
   $> sudo apt-get install -y nodejs
 
   # Verify the Node.js version:
-  $> node -v # v24.x.y
+  $> node -v # v26.x.y
   ```
 
 - Install Git, clone the application and install its dependencies:
