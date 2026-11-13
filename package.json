@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-pug": "^3.0.0",
-    "chalk": "^5.1.2",
+    "chalk": "^6.0.1",
     "formdata-node": "^6.0.3",
     "lodash-es": "^4.17.21",
     "node-fetch": "^3.0.0",
