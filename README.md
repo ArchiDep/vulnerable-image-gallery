@@ -44,7 +44,14 @@
   $> cd vulnerable-image-gallery
   ```
 
-- Run the application:
+- If nginx is installed and running, stop it so that it does not occupy port
+  80:
+
+  ```bash
+  $> sudo systemctl stop nginx
+  ```
+
+- Run the application, loading the environment file created during setup:
 
   **:warning: DO NOT DO THIS :warning:**
 
