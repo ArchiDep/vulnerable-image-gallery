@@ -18,6 +18,11 @@ log4js.configure({
  * along with a close function.
  */
 export async function startServer() {
+  // The gallery reads this directory on every request to the home page; make
+  // sure it exists so the suite does not depend on the checkout including the
+  // images/.keep placeholder.
+  await fs.mkdir(imagesDir, { recursive: true });
+
   const server = createServer(app);
 
   await new Promise((resolve, reject) => {
