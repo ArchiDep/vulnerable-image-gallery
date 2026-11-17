@@ -15,7 +15,7 @@
   "homepage": "https://github.com/MediaComem/comem-archidep#readme",
   "type": "module",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "node --watch ./server.js",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "start": "node ./server.js",
@@ -35,7 +35,6 @@
     "formdata-node": "^6.0.3",
     "lodash-es": "^4.17.21",
     "node-fetch": "^3.0.0",
-    "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
   },
   "engines": {
