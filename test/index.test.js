@@ -63,10 +63,11 @@ describe('GET /', () => {
     }
   });
 
-  it('lists gif, jpg and png files', async () => {
+  it('lists gif, jpg, jpeg and png files', async () => {
     const names = [
       uniqueName('pic', 'gif'),
       uniqueName('pic', 'jpg'),
+      uniqueName('pic', 'jpeg'),
       uniqueName('pic', 'png')
     ];
     const cleanups = await Promise.all(
@@ -82,26 +83,6 @@ describe('GET /', () => {
       }
     } finally {
       await Promise.all(cleanups.map(cleanup => cleanup()));
-    }
-  });
-
-  it('does not list .jpeg files (the filter regex /je?pg/ misses "jpeg")', async () => {
-    // Characterizes a real quirk: the index filter is /\.(?:gif|je?pg|png)$/u,
-    // which matches "jpg" and "jepg" but not "jpeg". If the regex is ever
-    // fixed to include jpeg, update this test to expect the file to be listed.
-    const jpegName = uniqueName('pic', 'jpeg');
-    const cleanup = await createImageFile(jpegName, 'fake');
-
-    try {
-      const res = await fetch(server.baseUrl + '/');
-      const body = await res.text();
-
-      assert.ok(
-        !body.includes(jpegName),
-        `the filter regex currently excludes ${jpegName}`
-      );
-    } finally {
-      await cleanup();
     }
   });
 });
