@@ -49,5 +49,5 @@
   **:warning: DO NOT DO THIS :warning:**
 
   ```bash
-  $> sudo node ./server.js
+  $> sudo node --env-file .env ./server.js
   ```
