@@ -4,3 +4,4 @@
 /images/*
 !/images/.keep
 /node_modules
+/tmp
